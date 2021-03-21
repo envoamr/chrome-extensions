@@ -1,0 +1,24 @@
+{
+  "manifest_version": 2,
+  "name": "evalSelect",
+  "description": "Converts selected text from hex/binary/base64 to Ascii, or evaluates a math expression. You can copy the result by clicking on the box. The number of chars/words are shown on a separate box.",
+  "version": "1.0.0",
+  "permissions": [
+    "<all_urls>", "activeTab"
+    ],
+  "icons": {
+    "16": "icons/16.png",
+    "48": "icons/48.png",
+    "128": "icons/128.png"
+  },
+  "browser_action": {
+    "default_popup": "/popup/popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["/app/createPanel.js", "/app/content.js", "/app/evalMath.js", "/app/evalConv.js"],
+      "run_at": "document_end"
+    }
+  ]
+}
